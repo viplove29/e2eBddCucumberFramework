@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebDriver;
 import pages.GoogleHomePage;
 import teststeps.GoogleSearchTestSteps;
 

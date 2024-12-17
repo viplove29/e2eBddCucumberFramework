@@ -36,7 +36,7 @@ public class DriverFactory {
     // Quit the driver for the current thread and set it to null
     if (driver.get() != null) {
       driver.get().quit();
-      driver.remove();  // Remove the driver from ThreadLocal
+      driver.remove(); // Remove the driver from ThreadLocal
     }
   }
 }

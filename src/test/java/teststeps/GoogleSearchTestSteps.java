@@ -14,7 +14,6 @@ public class GoogleSearchTestSteps {
 
   public void verifyTitleContains(String expected) {
     String actualTitle = driver.getTitle();
-    Assert.assertTrue(
-        actualTitle.contains(expected), "Page title does not contain expected text.");
+    Assert.assertTrue(actualTitle.contains(expected), "Page title does not contain expected text.");
   }
 }

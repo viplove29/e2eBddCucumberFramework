@@ -9,6 +9,7 @@ import utils.DriverFactory;
 public class Hooks {
 
   WebDriver driver;
+
   @Before
   public void setUp() {
     // Initialize WebDriver
