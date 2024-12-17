@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.ConfigReader;
 import utils.DriverFactory;
 
 /** GoogleHomePage contains locators and methods for interacting with Google's home page. */
@@ -19,7 +20,7 @@ public class GoogleHomePage {
 
   // Methods
   public void openHomePage() {
-    driver.get("https://www.google.com");
+    driver.get(ConfigReader.getProperty("base.url"));
   }
 
   public void enterSearchQuery(String query) {
