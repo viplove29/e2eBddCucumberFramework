@@ -1,0 +1,43 @@
+### **GitHub Actions Workflow**
+name: Run Tests and Send Email
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Set Up Maven
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y maven
+
+    - name: Run Tests
+      run: mvn clean test
+
+    - name: Send Email Notification
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.GMAIL_USERNAME }}
+        password: ${{ secrets.GMAIL_APP_PASSWORD }}
+        subject: "BDD Framework Test Report Viplove"
+        body: "Test suite execution completed. Attached is the report."
+        from: ${{ secrets.GMAIL_USERNAME }}  # Sender's email address (same as username)
+        to: ${{ secrets.TO_EMAIL }}  # Recipient email (use secret for flexibility)
+        content_type: text/html
+        attachments: target/cucumber-reports.html
