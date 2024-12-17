@@ -35,15 +35,15 @@ jobs:
       - name: Run Maven Tests
         run: mvn clean test
 
-      - name: Send Email Notification
+      - name: Send Test Report Email BDD
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.GMAIL_USERNAME }}
-          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          server_address: smtp.gmail.com  # gmail SMTP server
+          server_port: 587  # TLS port
+          username: ${{ secrets.GMAIL_USERNAME }}  # gmail email address
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}  # gmail app password or regular password
           from: ${{ secrets.GMAIL_USERNAME }}  # Sender's email address (same as username)
           to: ${{ secrets.TO_EMAIL }}  # Recipient email (use secret for flexibility)
-          subject: "BDD Framework Test Report"
-          body: "Test suite execution completed. Attached is the report."
+          subject: "Test Report for my youtube viewers BDD"
+          body: "Please find the attached test report BDD."
           attachments: target/cucumber-reports.html
