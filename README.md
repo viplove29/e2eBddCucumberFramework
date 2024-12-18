@@ -1,4 +1,4 @@
-# BDD Framework for Selenium and Cucumber
+# BDD Framework for Selenium and Cucumber 
 
 This framework implements a Behavior-Driven Development (BDD) approach using Selenium, Cucumber, and JUnit. It is designed to be modular, maintainable, and scalable for testing web applications.
 
